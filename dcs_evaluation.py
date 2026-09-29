@@ -28,6 +28,15 @@ def act1_cost_curve(inst, per_dc_values):
     return Act1Result(k_star, cost_star, curve, gaps)
 
 
+def per_dc_gap(a1, m, n_customers, per_dc):
+    """(k_hat, Kosten, Lücke) für einen BELIEBIGEN Faustregel-Wert, nicht nur die festen Marker in
+    `a1.per_dc_gaps` — der Regler in der App deckt einen größeren Bereich ab als die Marker-Diamanten
+    auf der Kurve, `a1.curve` deckt aber schon jedes k ab, ein neuer MILP-Lauf ist nicht nötig."""
+    k_hat = max(1, min(m, rule_of_thumb_k(n_customers, per_dc)))
+    cost_hat = a1.curve[k_hat]
+    return k_hat, cost_hat, 100.0 * (cost_hat - a1.cost_star) / a1.cost_star
+
+
 @dataclass(frozen=True)
 class Act2Result:
     cost_old_t0: int

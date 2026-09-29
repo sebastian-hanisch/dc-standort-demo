@@ -11,7 +11,7 @@ Lauffähig mit: streamlit run app.py
 import streamlit as st
 
 import dcs_constants as C
-from dcs_evaluation import act1_cost_curve, act2_shift, act3_rule_comparison
+from dcs_evaluation import act1_cost_curve, act2_shift, act3_rule_comparison, per_dc_gap
 from dcs_presets import (
     apply_preset,
     bounds,
@@ -124,7 +124,7 @@ st.caption("Kostenkurve über die erzwungene Standortzahl k (Stern = freies Opti
 markers = list(a1.per_dc_gaps.items())
 st.plotly_chart(build_cost_curve(a1.curve, a1.k_star, markers), width="stretch", key="cost_curve_chart")
 
-k_hat, cost_hat, gap_hat = a1.per_dc_gaps[per_dc]
+k_hat, cost_hat, gap_hat = per_dc_gap(a1, inst.m, inst.n, per_dc)
 c1, c2, c3 = st.columns(3)
 c1.metric("Freies Optimum", _int(a1.cost_star), help=f"{a1.k_star} Standorte.")
 c2.metric(f"Faustregel „1 je {per_dc}“", _int(cost_hat), delta=f"{_pct(gap_hat)} teurer" if gap_hat > 1e-9 else "trifft das Optimum",

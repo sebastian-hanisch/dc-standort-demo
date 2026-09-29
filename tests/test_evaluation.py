@@ -3,8 +3,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from dcs_constants import PER_DC_MARKERS
-from dcs_evaluation import act1_cost_curve, act2_shift, act3_rule_comparison
+from dcs_constants import PER_DC_MARKERS, PER_DC_MAX, PER_DC_MIN
+from dcs_evaluation import act1_cost_curve, act2_shift, act3_rule_comparison, per_dc_gap
 from dcs_exact import solve_mip
 from dcs_scenario import generate_map
 
@@ -23,6 +23,27 @@ def test_act1_per_dc_gaps_are_nonnegative():
     for n, (k_hat, cost_hat, gap) in a1.per_dc_gaps.items():
         assert cost_hat >= a1.cost_star
         assert gap >= -1e-9
+
+
+def test_per_dc_gap_works_for_every_slider_value_not_just_the_fixed_markers():
+    """Regressionstest: der per_dc-Regler deckt PER_DC_MIN..PER_DC_MAX ab, aber a1.per_dc_gaps enthaelt nur
+    die vier festen Marker (PER_DC_MARKERS) - ein direkter dict-Zugriff mit einem beliebigen Reglerwert wirft
+    KeyError (vom AppTest-Smoke-Test gefunden, der jeden Slider ans Minimum/Maximum faehrt). per_dc_gap() muss
+    fuer JEDEN Wert im Reglerbereich funktionieren."""
+    inst = generate_map(18, 40, 100, 1)
+    a1 = act1_cost_curve(inst, PER_DC_MARKERS)
+    for n in range(PER_DC_MIN, PER_DC_MAX + 1):
+        k_hat, cost_hat, gap = per_dc_gap(a1, inst.m, inst.n, n)
+        assert 1 <= k_hat <= inst.m
+        assert cost_hat >= a1.cost_star
+        assert gap >= -1e-9
+
+
+def test_per_dc_gap_matches_act1_cost_curve_for_marker_values():
+    inst = generate_map(18, 40, 100, 1)
+    a1 = act1_cost_curve(inst, PER_DC_MARKERS)
+    for n in PER_DC_MARKERS:
+        assert per_dc_gap(a1, inst.m, inst.n, n) == a1.per_dc_gaps[n]
 
 
 def test_act2_gap_is_nonnegative_and_new_optimum_not_worse():

@@ -1,5 +1,5 @@
-"""Auswertungen für die drei Akte: Kostenkurve über die Standortzahl (Akt 1), alte gegen neu optimierte
-Standortauswahl bei Nachfrageverschiebung (Akt 2), naive Standortregeln gegen die gemeinsame Optimierung (Akt 3)."""
+"""Auswertungen für Akt 1, Akt 2 und das Zusatz-Panel: Kostenkurve über die Standortzahl (Akt 1), alte gegen neu optimierte
+Standortauswahl bei Nachfrageverschiebung (Akt 2), naive Standortregeln gegen die gemeinsame Optimierung (Zusatz-Panel)."""
 
 from dataclasses import dataclass
 

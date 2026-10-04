@@ -80,7 +80,7 @@ behalten" und "vollständig neu bauen" (z. B. nur einen einzelnen Standort nachr
 | `dcs_scenario.py` | Netz (Kopie aus `standortplanung-demo`), Nachfrageverschiebung `shift_demand` |
 | `dcs_exact.py` | HiGHS-MILP: freies Optimum, Optimum bei erzwungenem $k$, Kosten/Zuordnung einer Auswahl |
 | `dcs_rules.py` | Faustregel "1 je N", zwei naive Standortregeln (größte Nachfragezentren, gewichtetes k-Means) |
-| `dcs_evaluation.py` | Die drei Akte: Kostenkurve, Verschiebungsvergleich, Regelvergleich |
+| `dcs_evaluation.py` | Zwei Akte und das Zusatz-Panel: Kostenkurve, Verschiebungsvergleich, Regelvergleich |
 | `dcs_visualization.py` | Karte, Kostenkurve, Regel-Balken |
 | `dcs_presets.py`, `dcs_constants.py` | Presets, Permalink, Regler-Grenzen |
 | `tests/` | Szenario, Exakt (gegen Brute-Force), Regeln, Auswertung, Presets, App, `test_claims.py` (jede README-Zahl), `test_copies.py` (Wache gegen Drift vom UFL-Kern in `standortplanung-demo`) |

@@ -1,7 +1,7 @@
 """Praktiker-Regeln, die ohne den exakten Löser auskommen — Gegenstück zu den Faustregeln aus der Vorab-Messreihe.
 
 Akt 1: Standortzahl aus einer Faustregel ("1 DC je N Kunden") statt aus dem MILP.
-Akt 3: zwei naive Standortregeln (keine Fixkosten-/Interaktions-Rücksicht) statt der gemeinsamen Optimierung;
+Zusatz-Panel: zwei naive Standortregeln (keine Fixkosten-/Interaktions-Rücksicht) statt der gemeinsamen Optimierung;
 die Kundenzuordnung ist danach immer optimal (nächster offener Standort, `dcs_exact.assignment`).
 """
 

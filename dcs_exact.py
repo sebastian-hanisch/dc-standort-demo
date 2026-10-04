@@ -1,5 +1,5 @@
 """Exakte Rechnung (HiGHS über scipy): das freie Optimum, das Optimum bei erzwungener Standortzahl k (Akt 1),
-und die Kosten/Zuordnung einer vorgegebenen Standort-Auswahl (für Akt 2 und Akt 3, wo die Standorte nicht vom
+und die Kosten/Zuordnung einer vorgegebenen Standort-Auswahl (für Akt 2 und das Zusatz-Panel, wo die Standorte nicht vom
 Löser, sondern von einer Faustregel oder der alten T0-Auswahl kommen).
 
 Formulierung: starke Kopplung (x_ij <= y_i je Paar) wie in `standortplanung-demo` — dort gemessen: LP-Wert = Optimum

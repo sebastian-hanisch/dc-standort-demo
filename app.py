@@ -159,7 +159,7 @@ else:
 
 st.markdown("---")
 
-# --- Akt 3 (Panel) -----------------------------------------------------------------------------------------------
+# --- Zusatz (Panel) -----------------------------------------------------------------------------------------------
 
 st.markdown("## 🔬 Zusatz — Und wenn man einfach nach Cluster-Schwerpunkten baut?")
 st.caption("Zwei naive Standortregeln (ohne Fixkosten-/Interaktions-Rücksicht) bei gleicher Standortzahl wie das Optimum, Kundenzuordnung danach optimal.")
@@ -210,7 +210,7 @@ Zentrum den nächsten noch freien Kandidaten. Beide Regeln legen nur die Standor
 ist immer optimal (nächster offener Standort).
 
 Implementiert in `dcs_scenario.py` (Netz, Nachfrageverschiebung — Kopie/Erweiterung von `standortplanung-demo`),
-`dcs_exact.py` (HiGHS-MILP mit optionalem `force_k`), `dcs_rules.py` (Faustregeln), `dcs_evaluation.py` (die drei Akte).
+`dcs_exact.py` (HiGHS-MILP mit optionalem `force_k`), `dcs_rules.py` (Faustregeln), `dcs_evaluation.py` (Akt 1, Akt 2 und das Zusatz-Panel).
         """
     )
 

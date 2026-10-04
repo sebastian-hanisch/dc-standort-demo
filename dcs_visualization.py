@@ -1,6 +1,6 @@
 """Plotly-Abbildungen: Karte mit offenen Standorten (Kopie des Kartenbausteins aus `standortplanung-demo`), die
 Kostenkurve über die Standortzahl (Akt 1), die Karte mit alter/neuer Auswahl bei Nachfrageverschiebung (Akt 2) und
-der Vergleich der naiven Standortregeln (Akt 3). Achsen sind gesperrt (fixedrange), Karten mit gleichem Maßstab
+der Vergleich der naiven Standortregeln (Zusatz-Panel). Achsen sind gesperrt (fixedrange), Karten mit gleichem Maßstab
 (scaleanchor), damit Touch-Geräte beim Scrollen nicht zoomen."""
 
 import plotly.graph_objects as go

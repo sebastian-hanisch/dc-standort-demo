@@ -203,7 +203,7 @@ $\text{Kosten}(y^{T0}, d^{T1})$ (alte Auswahl unter neuer Nachfrage) gegen $\min
 optimiert); die **Umbaukosten** sind $\sum_{i\in y^{T1}\setminus y^{T0}} f_i$ — die einmalige Fixkosten-Summe der
 neu eröffneten Standorte.
 
-**Akt 3 — naive Regeln:** „größte Nachfragezentren“ wählt die $k$ Kandidaten mit dem höchsten Score
+**Zusatz — naive Regeln:** „größte Nachfragezentren“ wählt die $k$ Kandidaten mit dem höchsten Score
 $\sum_j d_j/(1+\text{dist}(i,j))$, ohne Fixkosten oder Interaktion; „gewichtetes k-Means“ clustert die Kundenpositionen
 (nachfragegewichteter Schwerpunkt, deterministische Farthest-Point-Initialisierung statt Zufallsstart) und wählt je
 Zentrum den nächsten noch freien Kandidaten. Beide Regeln legen nur die Standorte fest — die Kundenzuordnung danach
@@ -218,6 +218,6 @@ st.markdown("---")
 
 st.caption(
     "Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – "
-    "Operations Research und Machine Learning. Interesse an einer maßgeschneiderten Lösung für "
-    "Ihr Unternehmen? [Kontakt aufnehmen](https://sebastianhanisch.net/kontakt.html)"
+    "Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). "
+    "Mehr zum Thema: [Netzwerkdesign optimieren](https://sebastianhanisch.net/netzwerkdesign-optimierung.html)."
 )

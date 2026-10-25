@@ -67,6 +67,17 @@ Standortplanungs-Linie der "Konzepte"-Reihe (**UFL**, Uncapacitated Facility Loc
 Geschäftsfragen entlang erzählt statt an Verfahren.
 """
 )
+
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/verteilzentren-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Stellen Sie sich ein Unternehmen vor, das Läden aus Lagern beliefert. Jedes Lager kostet fest, egal wie viel es ausliefert, und jede Lieferung kostet je nach Menge und Entfernung. Wenige Lager bedeuten lange Wege, viele Lager hohe Fixkosten. Dazwischen liegen die Gesamtkosten am niedrigsten, und rund um diesen Punkt ändern sie sich kaum. Ein Lager mehr oder weniger ist daher billig, eine Faustregel, die weit danebenliegt, nicht. Verschiebt sich die Nachfrage, passt die alte Auswahl schlechter, und es entstehen laufende Mehrkosten. Ein Umbau kostet dagegen einmalig. Die Demo stellt beides gegenüber, an zufällig erzeugten Beispieldaten und ohne Kapazitätsgrenzen.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/verteilzentren-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
 st.caption(
     "Akt 1: wie viele Standorte, und was kostet es, das zu schätzen statt zu rechnen? Akt 2: die Antwort von heute "
     "hält nicht ewig — aber anzupassen ist selbst teuer. Verwandt: die Standortplanungs-Demo (derselbe UFL-Kern, "
@@ -149,7 +160,7 @@ d1.metric("Laufende Mehrkosten (alt unter T1)", _pct(a2.gap_pct), help=f"{_int(a
 d2.metric("Neu zu eröffnende Standorte", a2.n_newly_opened)
 d3.metric("Einmalige Umbaukosten", _int(a2.rebuild_fixed_cost))
 d4.metric("Umbau ÷ laufende Lücke", f"{a2.rebuild_to_gap_ratio:.1f}×" if a2.rebuild_to_gap_ratio != float("inf") else "–",
-         help="Verhältnis der einmaligen Fixkosten neu eröffneter Standorte zur laufenden Mehrkosten-Lücke (eine Periode).")
+         help="Verhältnis der einmaligen Fixkosten neu eröffneter Standorte zur laufenden Mehrkosten-Lücke. Die Lücke ist der Unterschied der Gesamtkosten (Fixkosten plus Zuordnungskosten) für einen Zeitabschnitt, dessen Länge das Modell nicht festlegt.")
 if a2.n_newly_opened == 0:
     st.success("✅ Die alte Auswahl bleibt bei dieser Verschiebung optimal — nichts anzupassen.")
 elif a2.rebuild_to_gap_ratio > 1:
@@ -188,6 +199,26 @@ st.markdown(
 st.markdown("---")
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/verteilzentren-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind Kandidaten-Standorte mit Fixkosten, Kunden mit Nachfrage und die Entfernungen dazwischen. Gesucht ist die Auswahl offener Standorte, die Fixkosten plus Belieferungskosten minimiert, und nach einer Nachfrageverschiebung der Vergleich zwischen der alten und einer neu berechneten Auswahl.
+
+| Symbol | Bedeutung |
+|---|---|
+| $I$, $J$ | Kandidaten-Standorte bzw. Kunden |
+| $f_i$ | Fixkosten des Standorts $i$ |
+| $c_{ij}$ | Kosten, den Kunden $j$ von Standort $i$ zu beliefern (Nachfrage mal Entfernung) |
+| $y_i$ | 1, wenn Standort $i$ eröffnet wird, sonst 0 |
+| $x_{ij}$ | Anteil der Nachfrage des Kunden $j$, der von Standort $i$ beliefert wird |
+| $k$ | erzwungene Zahl offener Standorte |
+| $d_j$, $d^{T1}$ | Nachfrage des Kunden $j$ bzw. alle Nachfragen nach der Verschiebung |
+| $y^{T0}$, $y^{T1}$ | bei T0 optimale Auswahl bzw. für T1 neu berechnete Auswahl |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/verteilzentren-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         r"""
 **Modell (wie die Standortplanungs-Demo).** Kandidaten $I$, Kunden $J$, Fixkosten $f_i$, Zuordnungskosten $c_{ij}$:

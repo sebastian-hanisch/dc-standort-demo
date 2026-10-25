@@ -49,11 +49,15 @@ def test_akt2_strong_shift_ratio_below_one():
 
 
 def test_akt2_quarter_region_smaller_gap_than_half():
-    """Wächst nur ein Kartenviertel statt einer halben Karte (gleicher Wachstumsfaktor 3,5), bleibt die Lücke kleiner."""
+    """Wächst nur ein Kartenviertel statt einer halben Karte (gleiche Faktoren 3,5 / 0,8), bleibt die Lücke kleiner."""
+    a2_half = act2_shift(STANDARD, "half", 3.5, 0.8)
+    assert a2_half.gap_pct == pytest.approx(7.652361486531471, abs=1e-6)
+    assert a2_half.n_newly_opened == 3
     a2_quarter = act2_shift(STANDARD, "quarter", 3.5, 0.8)
     assert a2_quarter.gap_pct == pytest.approx(2.187464581208206, abs=1e-6)
     assert a2_quarter.n_newly_opened == 1
     assert a2_quarter.rebuild_fixed_cost == 1172
+    assert a2_quarter.gap_pct < a2_half.gap_pct
 
 
 def test_akt3_rule_gaps():

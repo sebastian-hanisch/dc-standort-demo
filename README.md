@@ -40,9 +40,16 @@ Standorte statt 7) kostet **3,3 %** mehr, "1 je 12" (4 Standorte) **6,9 %**, "1 
 kostet **3,1 %** mehr als nötig; 3 neue Standorte werden gebraucht, ihre Fixkosten (4 287) sind das **2,8-Fache**
 der laufenden Lücke — der Umbau lohnt sich noch nicht sofort. Bei stärkerer Verschiebung (×2,8 / ×0,5) wächst die
 Lücke auf **8,4 %**; dieselben 3 Standorte werden gebraucht, aber jetzt ist das Verhältnis **0,8** — der Umbau ist
-günstiger als eine Periode der Mehrkosten, das Amortisations-Argument kippt. Bei gleichem Wachstumsfaktor, aber auf
-ein Kartenviertel statt eine halbe Karte konzentriert, bleibt die Lücke mit **2,2 %** kleiner (nur 1 statt 3 neue
-Standorte) — eine konzentrierte Verschiebung trifft weniger Standorte gleichzeitig als eine breite.
+günstiger als eine Periode der Mehrkosten, das Amortisations-Argument kippt. Bei denselben Faktoren
+(Wachstum ×3,5 / Schrumpfung ×0,8) liegt die Lücke für die halbe Karte bei **7,7 %** mit 3 neuen Standorten, für ein
+Kartenviertel statt der halben Karte nur bei **2,2 %** mit 1 neuen Standort — in diesem Szenario trifft eine
+konzentrierte Verschiebung weniger Standorte gleichzeitig als eine breite.
+
+**Was „eine Periode“ hier heißt.** Die Gesamtkosten der Zielfunktion (Fixkosten plus Zuordnungskosten) und damit die
+laufende Lücke beziehen sich auf einen Zeitabschnitt, dessen Länge das Modell nicht festlegt. Das Verhältnis setzt die
+Fixkosten der neu zu eröffnenden Standorte als einmalige Summe ins Verhältnis zur Lücke dieses einen Zeitabschnitts
+(Code: `rebuild_fixed_cost / (cost_old_under_t1 - cost_new_t1)`); wie viele Zeitabschnitte der Umbau wirken soll, geht
+nicht in die Rechnung ein.
 
 **Zusatz-Panel.** Zwei naive Standortregeln bei gleicher Standortzahl wie das Optimum: "größte Nachfragezentren"
 (Score ohne Fixkosten-/Interaktions-Rücksicht) liegt **23,8 %** über dem Optimum, das plausiblere nachfragegewichtete

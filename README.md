@@ -61,7 +61,7 @@ Eröffnung mit.
 
 Eine Vorab-Messreihe hat drei Kandidaten-Hooks geprüft, bevor diese Demo gebaut wurde:
 
-- **"Sequenziell (Cluster-Regel) statt gemeinsam optimieren" ist ein eigenständiger, tragender Hook — widerlegt
+- **"Sequenziell (Cluster-Regel) statt gemeinsam optimieren" ist ein eigenständiger Hook — widerlegt
   als Hauptsäule.** Der Effekt ist real (9,8 % / 23,8 %), aber konzeptionell zu nah an der k-Means-Demo (dieselbe
   Depotwahl-Idee, nur jetzt mit Fixkosten) und die schlechtere Regel wirkt wie ein Strohmann. Als Zusatz-Panel
   aufgenommen, nicht als Akt.
